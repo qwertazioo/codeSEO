@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeSEO - Web Development & SEO Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Client Work Section */
+        .client-work {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem 0;
+            margin: 4rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .client-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .client-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .client-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .client-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .client-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 4rem 0;
+        }
+
+        .contact h2 {
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .contact-item span {
+            font-size: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+            .contact-info { flex-direction: column; gap: 1rem; }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">codeSEO</div>
+            <div class="tagline">Premium Web Development & SEO Solutions</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Transforming Digital Presence</h1>
+            <p>We create stunning websites and implement powerful SEO strategies that drive real results for businesses worldwide.</p>
+        </div>
+
+        <div class="services">
+            <div class="service-card animate-on-scroll">
+                <span class="service-icon">🚀</span>
+                <h3>Web Development</h3>
+                <p>Custom-built websites with modern technologies, responsive design, and optimized performance. From concept to deployment, we deliver exceptional digital experiences.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <span class="service-icon">📈</span>
+                <h3>SEO Optimization</h3>
+                <p>Comprehensive SEO strategies that improve search rankings, increase organic traffic, and boost online visibility. Data-driven approaches that deliver measurable results.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <span class="service-icon">⚡</span>
+                <h3>Performance Optimization</h3>
+                <p>Speed optimization, mobile responsiveness, and technical SEO improvements that enhance user experience and search engine performance.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">300%</div>
+                <div class="stat-label">Average Traffic Increase</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+
+        <div class="client-work animate-on-scroll">
+            <div class="container">
+                <h2 class="section-title">Featured Client Work</h2>
+                <div class="client-grid">
+                    <div class="client-card">
+                        <div class="client-logo">💼 Upwork Projects</div>
+                        <div class="client-description">
+                            Delivered exceptional web development and SEO services to multiple clients on Upwork, consistently achieving top ratings and repeat business.
+                        </div>
+                        <ul class="achievements">
+                            <li>100% Job Success Score maintained</li>
+                            <li>Multiple 5-star client reviews</li>
+                            <li>Specialized in React, Node.js, and WordPress</li>
+                            <li>SEO improvements averaging 200%+ traffic growth</li>
+                            <li>Mobile-first responsive designs</li>
+                            <li>E-commerce solutions with payment integration</li>
+                        </ul>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-logo">🏢 GrupoSM</div>
+                        <div class="client-description">
+                            Comprehensive digital transformation project including website redesign, SEO optimization, and performance enhancement for this established business group.
+                        </div>
+                        <ul class="achievements">
+                            <li>Complete website architecture redesign</li>
+                            <li>400% improvement in page load speeds</li>
+                            <li>Mobile responsiveness across all devices</li>
+                            <li>Local SEO optimization for multiple locations</li>
+                            <li>Content management system implementation</li>
+                            <li>Analytics and tracking setup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact animate-on-scroll">
+            <div class="container">
+                <h2>Let's Work Together</h2>
+                <p>Ready to transform your digital presence? Get in touch for a consultation.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>codeSEO@proton.me</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span>Available on Upwork</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <span>www.codeseo.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
